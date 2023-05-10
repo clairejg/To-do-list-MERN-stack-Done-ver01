@@ -11,5 +11,8 @@ const router = Router()
 
 //3.when a GET request is made to the homepage(/), respond with: res.json()
 router.get('/',getToDoSchemaMongo)
+//getToDoSchemaMongo is exported from ToDoController.js
+//getToDoSchemaMongo is the schema of MongoDB
+//router imported getToDoSchemaMongo from ToDoController.js
 
 module.exports = router
