@@ -3,13 +3,20 @@
 const express = require('express')
 // import express library
 const mongoose = require('mongoose')
+const cors = require("cors")
+//
 require('dotenv').config()
 
+
 //from Server.js.1
-const routes = require('./routes/ToDoRoutes')
+const routes = require('./routes/ToDoRoutes')  
 
 const app= express()
-const PORT = process.env.port || 2000
+const PORT = process.env.port || 3001
+
+app.use(express.json())
+app.use(cors())
+
 
 //connect to mongoDB 
 mongoose
@@ -27,3 +34,5 @@ mongoose
 
 app.listen(PORT, () => console.log(`Successfully Listening on: ${PORT} ! `))
 //  we use ${ } to use the declared variable into a string
+
+//compile command: backend % nodemon Server.js
