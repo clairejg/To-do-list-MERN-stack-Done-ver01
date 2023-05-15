@@ -1,7 +1,7 @@
 //
 import ToDo from "./components/ToDo";
 import {useEffect, useState} from "react";
-import {getAllToDo, addToDo} from "./utils/HandleApi";
+import {getAllToDo, addToDo, updateTodo} from "./utils/HandleApi";
 //
 //지금까지 우리가 리액트 컴포넌트를 만들 때는, 동적인 부분이 하나도 없었습니다. 값이 바뀌는 일이 없었죠. 
 //이번에는 컴포넌트에서 보여줘야 하는 내용이 사용자 인터랙션에 따라 바뀌어야 할 때 어떻게 구현할 수 있는지에 대하여 알아보겠습니다.
@@ -9,10 +9,6 @@ import {getAllToDo, addToDo} from "./utils/HandleApi";
 // 이것을 사용하면 컴포넌트에서 상태를 관리 할 수 있습니다.
 
 function App() {
-
-
-
-
 
   const [toDo, setToDo] = useState([]) // ToDo's state.
   // syntax of useState.
@@ -24,16 +20,28 @@ function App() {
     //i.e. useState([]): Empty Array.
 
   const [text,setText] = useState("")
+  const [isUpdating, setIsUpdating] = useState(false)
+  //default useState is false
+  
+  const [toDoId, setToDoId] = useState("")
+  //we must add newStates for toDoId, and setToDoId, for onClickevent on App.js
+  // and for updateToDo.
+
 
   //useState() and useEffect() need each other: whenever there is a new ToDo item from 'user input' on the browser,
   //useState() and useEffect() are used to update the newUserInput into DB and Broswser.
   //the useEffect takes callback function that produces array.
   useEffect(() =>{
     getAllToDo(setToDo)
-
   },[])
 
+  // declaring the function 'updateMode' with function calls
+  const updateMode = (_id, text) =>{
+    setIsUpdating(true)
+    setText(text)
+    setToDoId(_id)
 
+  }
 
     return (
     <div className="App">
@@ -44,7 +52,7 @@ function App() {
         <div className="top">
           <input 
           type="text" 
-          placeholder="type input.."
+          placeholder="type input for To Do.."
           value={text}
           onChange={(e) => setText(e.target.value)}
           //1.onchange 이벤트는 input 태그의 포커스를 벗어났을때 (즉, 입력이 끝났을때) 발생하는 이벤트이다.
@@ -64,16 +72,28 @@ First you have e which is short for event. To understand what it does change onC
           />
 
 
-          <div className="addButton" onClick={()=>addToDo(text, setText, setToDo)}>Add to-do item</div>
+          <div className="addButton" onClick={isUpdating ? 
+            () => updateTodo(toDoId, text, setToDo, setText, setIsUpdating) : ()=>addToDo(text, setText, setToDo)}>
+            {isUpdating ? "Update" : "Add to-do item " }
+            {/* if state isUpdating, button:"Update, if isUpdating is false, button:"Add to-do item" */}
+          </div>
           {/* |=> onClick event, we are calling a function '' which is declared in HandleApi.js */}
+          {/* for updateTodo, there is a callback function,,? */}
 
         </div>
 
         <div className="list">
 
-          {toDo.map((item) => <ToDo key={item._id} text={item.text} />
-          // setting key and text of ToDo object using map()
+          {toDo.map((item) =>
+           <ToDo 
+           key={item._id} 
+           text={item.text}
+           updateMode = {()=> updateMode(item._id, item.text)}
+          />
           )}
+          {/* updateMode is declared above */}
+          {/* setting key and text of ToDo object using map() */}
+        
           {/* <div>{key}, {value} </div> where, key==age, value:30
           then the result print out: <div> age 30 </div> */}
           {/* var obj = {}; // creating object called 'obj' */}
