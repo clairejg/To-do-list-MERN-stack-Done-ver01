@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -14,7 +15,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #7e7f80;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +36,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.userName{
+  position: center;
+  align-items: center;
+  background-color: aqua;
 }

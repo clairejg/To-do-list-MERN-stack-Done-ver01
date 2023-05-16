@@ -85,7 +85,7 @@ const addToDo = (text, setText, setToDo) => {
 
 }
 
-const updateTodo = (toDoId, text, setToDo, setText, setIsUpdating) => {
+const updateToDo = (toDoId, text, setToDo, setText, setIsUpdating) => {
     //param: 
     //1.'text' which to be added by user as ToDo item, then we have to save the 'text' into our DB
     //2. setText: coming from App.js useState()// setToDo's job: When 'useEffect()' updates, ToDo, there will be new addition of [],'empty erray'
@@ -127,10 +127,51 @@ const updateTodo = (toDoId, text, setToDo, setText, setIsUpdating) => {
 }
 
 
+const deleteToDo = (_id, setToDo ) => {
+    //param: 
+    //1.'text' which to be added by user as ToDo item, then we have to save the 'text' into our DB
+    //2. setText: coming from App.js useState()// setToDo's job: When 'useEffect()' updates, ToDo, there will be new addition of [],'empty erray'
+    //3. setToDo: coming from App.js useState()
+    function getTimeStamp() {
+        var now = new Date();
+        return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                        + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                        .getSeconds()) : (now.getSeconds())));
+    }
+    //  const stringTimeStamp= getTimeStamp();
 
 
 
-export {getAllToDo, addToDo,updateTodo}
+
+    axios
+        .post(`${baseUrl}/delete`, { _id })
+        // {txet} to be passed in the body. routing to /delete
+        // axios
+        .then((data) => {
+
+            console.log('In HandleApi.js, From deleteToDo, : data is:' ,data)
+            console.log('In HandleApi.js, From deleteToDo,TimeStamp updated at:' ,getTimeStamp() )
+           
+            //setText(""): clearing the text field by empty string
+            //setText to blank
+            //we are fetching all the ToDos, including the new ones.
+
+          
+            getAllToDo(setToDo)
+            //now go to app.js and call this addToDo function
+
+        } )
+        .catch((err)=> console.log(err))
+
+
+}
+
+
+
+
+
+
+export {getAllToDo, addToDo,updateToDo, deleteToDo}
 // we are exporting these two functions to use them at App.js
 //1.
 //2. addToDo function is being used to add ToDoItem whenever there is a onClick event.

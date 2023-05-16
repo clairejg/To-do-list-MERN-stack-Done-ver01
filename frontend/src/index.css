@@ -1,6 +1,7 @@
 * {
   margin:0;
   padding:0;
+  font-size: 18px;
 }
 
 body {
@@ -29,29 +30,50 @@ h1{
   display:flex;
   gap:1rem;
   justify-content:center;
+  margin-top: 90px;
 }
 
 input{
+  /* margin-top: 40px; */
   border:none;
   outline:none;
   width:480px;
   padding: 0 0.5rem;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(18, 17, 17);
+  /* background-color: lightblue; */
+}
+
+.toDoInput{
+  border:none;
+  outline:none;
+  width:480px;
+  padding: 0 0.5rem;
+  border-bottom: 1px solid rgb(18, 17, 17);
+  background-color: lightblue;
+  border-radius: 5px;
 }
 
 .addButton{
-  background-color: black;
-  color:white;
+  /* background-color: rgb(78, 78, 78); */
+  
+  border-color: gray;
+  border-style: groove;
+  border-radius: 20px;
+  color:rgb(20, 20, 20);
   padding: 0.5rem  1.5rem;
   cursor:pointer;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 6px 6px rgba(0, 0, 0, 0.23);
+  
 
 }
 
 .todo{
+ 
   position: relative;
   margin-top: 1rem;
-  background-color: #000;
-  color: #fff;
+  background-color: lightblue;
+
+  color: #0a0a0a;
   padding: 1.5rem 3rem;
   border-radius: 5px;
 }
@@ -68,4 +90,16 @@ input{
 .icon{
   cursor: pointer;
   font-size: 20px;
+}
+
+
+
+.userName{
+  margin-top: 20px;
+  /* position: center; */
+  align-items: center; 
+  /* background-color: aqua; */
+  text-align: center;
+  font-size: 19px;
+  font-weight: bold;
 }

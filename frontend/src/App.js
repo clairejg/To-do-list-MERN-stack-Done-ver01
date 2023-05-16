@@ -1,7 +1,7 @@
 //
 import ToDo from "./components/ToDo";
 import {useEffect, useState} from "react";
-import {getAllToDo, addToDo, updateTodo} from "./utils/HandleApi";
+import {getAllToDo, addToDo, updateToDo, deleteToDo} from "./utils/HandleApi";
 //
 //지금까지 우리가 리액트 컴포넌트를 만들 때는, 동적인 부분이 하나도 없었습니다. 값이 바뀌는 일이 없었죠. 
 //이번에는 컴포넌트에서 보여줘야 하는 내용이 사용자 인터랙션에 따라 바뀌어야 할 때 어떻게 구현할 수 있는지에 대하여 알아보겠습니다.
@@ -43,14 +43,24 @@ function App() {
 
   }
 
+  // const textUserName;
+
     return (
     <div className="App">
 
     <div className="container">
-      <h1>This is ToDoApp</h1>
+      <h1>This is To-Do Application for: <input className='userName'
+            type="text"
+            placeholder="type a user name here"
+        />
+
+      </h1>
+          
+          
+
 
         <div className="top">
-          <input 
+          <input className="toDoInput"
           type="text" 
           placeholder="type input for To Do.."
           value={text}
@@ -73,7 +83,7 @@ First you have e which is short for event. To understand what it does change onC
 
 
           <div className="addButton" onClick={isUpdating ? 
-            () => updateTodo(toDoId, text, setToDo, setText, setIsUpdating) : ()=>addToDo(text, setText, setToDo)}>
+            () => updateToDo(toDoId, text, setToDo, setText, setIsUpdating) : ()=>addToDo(text, setText, setToDo)}>
             {isUpdating ? "Update" : "Add to-do item " }
             {/* if state isUpdating, button:"Update, if isUpdating is false, button:"Add to-do item" */}
           </div>
@@ -89,6 +99,9 @@ First you have e which is short for event. To understand what it does change onC
            key={item._id} 
            text={item.text}
            updateMode = {()=> updateMode(item._id, item.text)}
+           deleteToDo = {() => deleteToDo(item._id, setToDo)}
+           //add deleteTodo. In ToDO.js the name is declared as deleteToDo
+
           />
           )}
           {/* updateMode is declared above */}
@@ -106,9 +119,9 @@ First you have e which is short for event. To understand what it does change onC
           ["Today is: Monday", "Today is: Tuesday" , "Today is: Wed"] */}
 
 
-
+{/* 
           <ToDo text="hihi"/>
-          <ToDo text="hihi"/>
+          <ToDo text="hihi"/> */}
         </div>
 
 
