@@ -16,4 +16,4 @@ const todoSchema = new mongoose.Schema({
 
 module.exports = mongoose.model('ToDoSchemaMongo', todoSchema)
 // going to use the module at ToDoController.js
-// ToDoSchemaMongo is the collection name in MongoDB
+// ToDoSchemaMongo is the collection name in M

@@ -78,7 +78,7 @@ First you have e which is short for event. To understand what it does change onC
             {/* if state isUpdating, button:"Update, if isUpdating is false, button:"Add to-do item" */}
           </div>
           {/* |=> onClick event, we are calling a function '' which is declared in HandleApi.js */}
-          {/* for updateTodo, there is a callback function,,? */}
+          {/* for updateTodo, there is a callback function,, */}
 
         </div>
 

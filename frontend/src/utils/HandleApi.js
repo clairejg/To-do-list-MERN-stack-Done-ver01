@@ -23,9 +23,20 @@ const addToDo = (text, setText, setToDo) => {
     //1.'text' which to be added by user as ToDo item, then we have to save the 'text' into our DB
     //2. setText: coming from App.js useState()// setToDo's job: When 'useEffect()' updates, ToDo, there will be new addition of [],'empty erray'
     //3. setToDo: coming from App.js useState()
+      function getTimeStamp() {
+            var now = new Date();
+            return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                            + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                            .getSeconds()) : (now.getSeconds())));
+        }
+        //  const stringTimeStamp= getTimeStamp();
+
+
+
+
 
     axios
-        .post(`${baseUrl}/save`, {text})
+        .post(`${baseUrl}/save`, {text })
         // {text} to be passed in the body.
         //POST method : axios.post(url, data[, config]).
         //post 메서드에는 일반적으로 데이터를 Message Body에 포함시켜 보낸다. 위에서 봤던 get 메서드에서 params를 사용한 경우와 비슷하게 수행된다.
@@ -57,12 +68,7 @@ const addToDo = (text, setText, setToDo) => {
             
 
 
-        function getTimeStamp() {
-            var now = new Date();
-            return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
-                            + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
-                            .getSeconds()) : (now.getSeconds())));
-        }
+      
 
 
             console.log('In HandleApi.js, From addToDo, : data is:' ,data)
@@ -84,6 +90,16 @@ const updateTodo = (toDoId, text, setToDo, setText, setIsUpdating) => {
     //1.'text' which to be added by user as ToDo item, then we have to save the 'text' into our DB
     //2. setText: coming from App.js useState()// setToDo's job: When 'useEffect()' updates, ToDo, there will be new addition of [],'empty erray'
     //3. setToDo: coming from App.js useState()
+    function getTimeStamp() {
+        var now = new Date();
+        return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                        + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                        .getSeconds()) : (now.getSeconds())));
+    }
+    //  const stringTimeStamp= getTimeStamp();
+
+
+
 
     axios
         .post(`${baseUrl}/update`, {_id: toDoId, text})
@@ -91,8 +107,11 @@ const updateTodo = (toDoId, text, setToDo, setText, setIsUpdating) => {
         // axios
         .then((data) => {
 
-            console.log('In HandleApi.js, From addToDo, : data is:' ,data)
+            console.log('In HandleApi.js, From updateToDo, : data is:' ,data)
             setText("")
+            setText("")
+            console.log('In HandleApi.js, From updateToDo,TimeStamp updated at:' ,getTimeStamp() )
+           
             //setText(""): clearing the text field by empty string
             //setText to blank
             //we are fetching all the ToDos, including the new ones.

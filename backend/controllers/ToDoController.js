@@ -26,6 +26,7 @@ const ToDoSchemaAll= await ToDoModel.find()
 }
 module.exports.saveToDo= async(req,res) =>{
     const {text} = req.body
+    
     // we are going to send this text to the route
     ToDoModel
         .create({text})
