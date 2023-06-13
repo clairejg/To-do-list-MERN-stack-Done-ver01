@@ -4,6 +4,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+In your local terminal, 
+1. change your current directory to 'backend'.
+2. then type ' npm start ' in the terminal
+3. Again,  cd into 'frontend' directory. Then type ' npm start ' in the terminal.
+4. Then you should see the compiled website.
+
 In the project directory, you can run:
 
 ### `npm start`

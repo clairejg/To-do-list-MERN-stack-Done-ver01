@@ -13,17 +13,63 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 .container{
 
   max-width: 600px;
   margin:auto;
   padding:0 1rem;
   margin-top: 80px;
+  border-style: solid;
+  border-color: lightgray;
+  border-width: 10px;
+  min-height: 700px;
+  min-width: 700px;
+  height: 100%;
+  width: 90%;
+  border-radius: 20px;
+  padding-bottom: 20px;
+
+
+  /* background-color: mintcream; */
+}
+
+.titleDiv{
+
+  font-size: 18px;
+  font-weight: bold;
+ 
+
+}
+
+.userNameDiv{
+
+  font-size: 18px;
+  font-weight: bold;
+  /* width: 200px; */
+  text-align:center;
+  /* justify-items: center; */
+  /* background-color: antiquewhite;
+   */
+
+}
+
+.userNameInput{
+
+  font-size: 18px;
+  font-weight: bold;
+  width: 60%;
+  text-align:center;
+  /* background-color: antiquewhite; */
+  
 }
 
 h1{
   margin-top: 1rem;
   text-align:center;
+  font-size: 18px;
+  font-weight: bold;
+  padding-bottom: 30px;
 }
 
 .top{
@@ -32,13 +78,17 @@ h1{
   gap:1rem;
   justify-content:center;
   margin-top: 90px;
+  /* background-color: aqua; */
+  /* width:95%; */
+  min-width:95%;
+  /* padding: 1rem; */
 }
 
 input{
   /* margin-top: 40px; */
   border:none;
   outline:none;
-  width:480px;
+  width:80%;
   padding: 0 0.5rem;
   border-bottom: 1px solid rgb(18, 17, 17);
   /* background-color: lightblue; */
@@ -47,24 +97,30 @@ input{
 .toDoInput{
   border:none;
   outline:none;
-  width:480px;
-  padding: 0 0.5rem;
+  /* width:480px; */
+  
+
+  padding: 1rem 0.5rem;
   border-bottom: 1px solid rgb(18, 17, 17);
   background-color: lightblue;
   border-radius: 5px;
+  font-size: 18px;
 }
 
 .addButton{
   /* background-color: rgb(78, 78, 78); */
-  
+  font-size: 16px;
+  font-weight: 20px;
   border-color: gray;
   border-style: groove;
   border-radius: 20px;
   color:rgb(20, 20, 20);
-  padding: 0.5rem  1.5rem;
+  padding: 0.9rem 0.5rem;
   cursor:pointer;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 6px 6px rgba(0, 0, 0, 0.23);
-  
+  /* text-align: center;
+  justify-content: center; */
+  margin: auto;
 
 }
 
@@ -75,8 +131,13 @@ input{
   background-color: lightblue;
 
   color: #0a0a0a;
-  padding: 1.5rem 3rem;
+  padding: 1.5rem 0.8rem;
   border-radius: 5px;
+  min-width: 85%;
+  /* width:85%; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* text-align: center; */
 }
 
 .icons{

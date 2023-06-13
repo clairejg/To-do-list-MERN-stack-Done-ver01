@@ -49,13 +49,15 @@ function App() {
     <div className="App">
 
     <div className="container">
-      <h1>This is To-Do Application for: <input className='userName'
-            type="text"
-            placeholder="type a user name here"
-        />
+        <div className="titleDiv">
 
-      </h1>
-          
+          <h1> To-Do Application 
+          </h1>
+               <p className="userNameDiv">Username:<input className='userNameInput'
+                type="text"
+                placeholder="type your username here"  /></p> 
+        </div>
+
           
 
 
@@ -84,7 +86,7 @@ First you have e which is short for event. To understand what it does change onC
 
           <div className="addButton" onClick={isUpdating ? 
             () => updateToDo(toDoId, text, setToDo, setText, setIsUpdating) : ()=>addToDo(text, setText, setToDo)}>
-            {isUpdating ? "Update" : "Add to-do item " }
+            {isUpdating ? "Update" : "Add to-do" }
             {/* if state isUpdating, button:"Update, if isUpdating is false, button:"Add to-do item" */}
           </div>
           {/* |=> onClick event, we are calling a function '' which is declared in HandleApi.js */}
