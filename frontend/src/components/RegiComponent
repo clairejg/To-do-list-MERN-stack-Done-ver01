@@ -1,0 +1,22 @@
+//rafce
+import React from 'react'
+// import {BiEdit} from "react-icons/bi"
+// import { AiFillDelete  } from "react-icons/ai"
+
+
+
+const RegiComponent = ({textReg}) => {
+  return (
+    <div className="todo">
+        <div className="text">{textReg}</div>
+        // <div className="icons">
+            {/* The onclick event occurs when the user clicks on an HTML element. */}
+
+        </div>
+    </div>
+
+ )
+}
+
+export default RegiComponent
+

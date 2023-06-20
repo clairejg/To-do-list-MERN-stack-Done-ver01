@@ -1,0 +1,29 @@
+/* .container {
+
+} */
+
+.titleHome{
+    font-size: 18px;
+    font-weight: bold;
+    /* background-color: whitesmoke; */
+    background-color:azure;
+    height:400px;
+  
+    padding: 0;
+    margin: 0;
+  
+  /* justify-content: center; */
+  text-align: center;
+
+  
+   
+  }
+
+  .div2Home{
+    font-size: 18px;
+    font-weight: bold;
+    background-color: white;
+    height:200px;
+    
+   
+  }
